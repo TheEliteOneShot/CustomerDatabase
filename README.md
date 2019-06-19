@@ -11,11 +11,11 @@ Demonstration Objectives:
 1. Login/Logout session functionality
 2. Separation of administrator and regular customer privileges during a session
 3. Bootstrapping for a session header inlay 
-4. Searching of records
-5. Keeping the search page consistent during routing
-6. Editing of records
-7. Adding of records
-8. Deleting of records
+4. Searching of SQL records
+5. Keeping the search query results consistent during routing procedures
+6. Editing of SQL records
+7. Adding of SQL records
+8. Deleting of SQL records
 
 **jQuery:**
 1. Login/Logout event flow
