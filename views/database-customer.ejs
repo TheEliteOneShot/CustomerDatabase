@@ -1,0 +1,42 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+        <% if (customers.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Longitude, Latitude</th>
+                        <th scope="col">IP Address</th>
+                        <th scope="col">Date Joined</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="footer">
+                    <% customers.forEach((customer, index) => { %>
+                        <tr>
+                            <th scope="row"><a href="/profile/<%= customer.id %>"><%= customer.id %></a></th>
+                            <td><%= customer.first_name %></td>
+                            <td><%= customer.last_name %></td>
+                            <td><%= customer.email %></td>
+                            <td><%= customer.longitude %>, <%= customer.latitude %></td>
+                            <td><%= customer.ip %></td>
+                            <td><%= customer.created_at %></td>
+                            <td>
+                                <a href="/edit/<%= customer.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                                <a href="/delete/<%= customer.id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No customers found. Go <a href="/add" >here</a> to add customers.</p>
+        <% } %>
+    </div>
+</div>
+<%- pages %>
+</body>
+</html>

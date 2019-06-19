@@ -1,0 +1,67 @@
+<% include partials/header.ejs %>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+</script>
+
+<style>
+    .button {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 32px;
+      margin: 4px 2px;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+    
+    .button1 {
+      background-color: white; 
+      color: black; 
+      border: 2px solid #4CAF50;
+    }
+    
+    .button1:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    </style>
+
+    <script>
+    $(document).ready(function(){
+        $("#button1").click(function(event){
+            window.location.href = "/customers/1"; 
+        });
+        $("#button2").click(function(event){
+            window.location.href = "/search"; 
+        });
+        $("#button3").click(function(event){
+            window.location.href = "/add"; 
+        });
+        $("#button4").click(function(event){
+            //window.location.href = "/orders/1"; 
+            window.alert("Order database not implemented.");
+        });
+        $("#button5").click(function(event){
+            //window.location.href = "/neworder";
+            window.alert("Order database not implemented.");
+        });
+    });
+    </script>
+
+
+
+    
+    <button class="button button1" id="button1">View Customer Database</button>
+    <button class="button button1" id="button2">Search Customer Database</button>
+    <button class="button button1" id="button3">Add Customer</button>
+    <button class="button button1" id="button4">View Order Database</button>
+    <button class="button button1" id="button5">Add Order</button>
+    
+    </body>
+    </html>

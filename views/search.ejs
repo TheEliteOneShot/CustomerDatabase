@@ -1,0 +1,100 @@
+<% include partials/header.ejs %>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<form class="add-customers-form" action="/search" method="post">
+    <div class="row align-items-center justify-content-center">
+        <div class="col-md-1 pt-1">
+            <div class="form-group ">
+                <input type="text" class="form-control" name="id" placeholder="User's ID">
+            </div>
+        </div>
+        <div class="col-md-1 pt-1">
+            <div class="form-group">
+                <input type="text" class="form-control" name="user_email" id="user_email" placeholder="User's Email">
+            </div>
+        </div>
+        <div class="col-md-1 pt-1">
+            <div class="form-group">
+                <input type="text" class="form-control" name="first_name" id="first_name"
+                    placeholder="User's First Name">
+            </div>
+        </div>
+        <div class="col-md-1 pt-1">
+            <div class="form-group">
+                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="User's Last Name">
+            </div>
+        </div>
+        <div class="col-md-1 pt-1">
+            <div class="form-group">
+                <input type="text" class="form-control" name="ip" id="ip" placeholder="User's I.P. Address">
+            </div>
+        </div>
+        <div class="col-md-1 pt-1">
+            <div class="form-group">
+                <input type="text" class="form-control" name="latitude" id="latitude" placeholder="User's Latitude">
+            </div>
+        </div>
+        <div class="col-md-1 pt-1">
+            <div class="form-group">
+                <input type="text" class="form-control" name="longitude" id="longitude" placeholder="User's Longitude">
+            </div>
+        </div>
+        <div class="col-md-1 pt-1">
+            <div class="form-group">
+                <input type="text" class="form-control" name="creation_date" id="creation_date"
+                    placeholder="User's Creation Date">
+            </div>
+        </div>
+        <div class="col-md-1">
+            <button type="submit" formmethod="post" class="btn btn-primary btn-block">Search</button>
+        </div>
+    </div>
+</form>
+
+<div class="table-wrapper">
+    <% if (totalCount != null && totalCount > 0) {%>
+    <table class="table table-hovered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Longitude, Latitude</th>
+                <th scope="col">IP Address</th>
+                <th scope="col">Date Joined</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody id="footer">
+            <% customers.forEach((customer, index) => { %>
+            <tr>
+                <th scope="row"><a href="/profile/<%= customer.id %>"><%= customer.id %></a></th>
+                <td><%= customer.first_name %></td>
+                <td><%= customer.last_name %></td>
+                <td><%= customer.email %></td>
+                <td><%= customer.longitude %>, <%= customer.latitude %></td>
+                <td><%= customer.ip %></td>
+                <td><%= customer.created_at %></td>
+                <td>
+                    <a href="/edit/<%= customer.id %>" target="_blank" rel="noopener"
+                        class="btn btn-sm btn-success">Edit</a>
+                    <a href="/delete/<%= customer.id %>" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <% } %>
+</div>
+</div>
+<% if (pages != null) {%>
+<%- pages %>
+<% } %>
+
+</body>
+
+</html>

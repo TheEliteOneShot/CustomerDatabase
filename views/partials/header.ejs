@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="/assets/css/custom.css">-->
+    <title><%= title %></title>
+</head>
+<style>
+    
+    .table-wrapper {
+        margin-top: 50px;
+    }
+
+    .player-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .add-player-form {
+        margin-top: 50px;
+    }
+    
+    body {
+    background: #EEEEEE;
+    text-align: center;
+    }
+
+    #footer {
+    background: #FFFFFF;
+    border:solid;
+    }
+
+</style>
+<body>
+<div class="page-wrapper">
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1"><a href="/">My Dashboard</a></span>
+        <span class="navbar-brand mb-0 h2"><b><%= message %></b></span>
+        <% if (userEmail.length > 0) { %>
+       <a class="float-right" href="/logout" title="Logout">Logout: <%= userEmail %></a>
+        <% } else {%>
+        <p class="float-right">&nbsp</p> 
+        <% } %>
+    </nav>
+</div>

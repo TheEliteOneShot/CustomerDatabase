@@ -1,0 +1,58 @@
+ <body>
+    <% include partials/header.ejs %>
+    <div class="container">
+
+        <% if (message) { %>
+          <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+
+    <% if (customer) { %>
+    <h1>Customer Profile</h1>
+
+    <h2><%= customer.first_name %> <%= customer.last_name %></h2>
+    <p>Since: <%= customer.created_at %> </p>
+    <p>Location: <%= customer.latitude %>, <%= customer.longitude %> </p>
+
+    <h2>Interests</h2>
+    <ul>
+      <li>Not Implemented Yet</li>
+    </ul>
+
+    <h2>Orders</h2>
+
+    <table>
+      <tr>
+        Not Implemented Yet
+      </tr>
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      <tr>
+        <td>789</td>
+        <td>2018-06-15T16:00:00Z</td>
+        <td>Processing</td>
+        <td><a href="/order/789">View</a></td>
+      </tr>
+      <tr>
+        <td>456</td>
+        <td>2018-06-10T15:55:00Z</td>
+        <td>Shipped</td>
+        <td><a href="/order/456">View</a></td>
+      </tr>
+      <tr>
+        <td>123</td>
+        <td>2018-06-01T16:00:00Z</td>
+        <td>Delivered</td>
+        <td><a href="/order/123">View</a></td>
+      </tr>
+    </table>
+  </div>
+  <% } else { %>
+    <p class="text-center">There is no customer profile.</p>
+<% } %>
+  </body>
+</html>
+
